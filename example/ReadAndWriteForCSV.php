@@ -19,7 +19,6 @@ function pre_print_r($input)
 $filename_A = 'A.csv';
 //打開CSV 'r' 讀取模式
 $open_A = fopen($filename_A, 'r');
-
 //逐行讀取CSV資料 直到空白行 
 while (($read = fgetcsv($open_A)) !== FALSE)
 {
@@ -66,53 +65,3 @@ while (($read = fgetcsv($open_B)) !== FALSE)
 fclose($open_B);
 
 pre_print_r($read_B);
-
-/**把資料重組成 KEY => value
- * [0]name
- * [1]York
- * [2]Heat
- * 變成 [0]['name'] => york
- *      [1]['name'] => Heat
- */
-/*function getCSVdata($filename)
-{
-    $row = 1;//第一行開始
-    if(($handle = fopen($filename, "r")) !== false)
-    {
-       while(($dataSrc = fgetcsv($handle)) !== false)
-        {
-            $num = count($dataSrc);
-
-            for ($c = 0; $c < $num; $c++)//列 column
-            {
-                if($row === 1)//第一行作為字段
-                {
-                    $dataName[] = $dataSrc[$c];//字段名稱
-                }
-                else
-                {
-                    foreach ($dataName as $k=>$v)
-                    {
-                        if($k == $c)//對應的字段
-                        {
-                            $data[$v] = $dataSrc[$c];
-                        }
-                    }
-                }
-            }
-
-            if(!empty($data))
-            {
-                $dataRtn[] = $data;
-                unset($data);
-            }
-            $row++;
-        }
-        fclose($handle);
-        return $dataRtn;
-    }
-}
-
-$aData = getCSVdata('A.csv');
-print_r($aData);
-pre_print_r($aData);*/

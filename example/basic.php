@@ -97,26 +97,6 @@ foreach ($test as $index => $value)
     echo "$index: $value"; // 第三種
     echo '</pre>';
 }
-
-//氣泡排序法
-function bubble_sort($array)
-{
-    $num = count($array);
-    //只是做迴圈
-    for($i = 0 ; $i < $num ; $i++)
-    {
-        //從第一個數字往後比較，如果前項比較小就交換
-        for($j = 1 ; $j < $num ; $j++)
-        {
-            if($array[$j] > $array[$j-1])
-            {
-                //交換兩個數值的小技巧，用list+each
-                list($array[$j-1] , $array[$j]) = array($array[$j] , $array[$j-1]);
-            }
-        }
-    }
-    return $array;
-}
 //刪除不要的陣列資料
 foreach ($information as $key => $value)
 {
@@ -207,39 +187,8 @@ echo '</pre>';
 //時間 2016 年 07 月 11 日 15:58:47
 $date = date("Y 年 m 月 d 日 H:i:s");
 
-//檢查多維陣列內數值是否存在
-function deep_in_array($value, $input_array)
-{
-    foreach ($input_array as $in_num)
-    {
-        if(!is_array($in_num))
-        {
-            if ($value == $in_num)
-                return TRUE;
-        }
-        else
-        {
-            if(deep_in_array($value,$in_num))
-                return TRUE;
-        }
-    }
-
-    return FALSE;
-}
-
-//用<pre>印出
-function pre_print_r($input)
-{
-    echo '<pre>';
-    print_r($input);
-    echo '</pre>';
-}
-
 //正規表示 中文 注音符號 和 二三四輕聲符
 '/[\x{4E00}-\x{9FA5}\x{3105}-\x{3129}\x{02CA}\x{02C7}\x{02CB}\x{02D9}]/'
 
 //正規表示 擋<script>
 '/</*(?:script|xss).*?>/'
-
-
-?>
