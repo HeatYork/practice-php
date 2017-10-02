@@ -3,16 +3,23 @@ set_time_limit(2000);
 
 $st = getMicrotime();
 
-require_once 'array.php';
-// $a = array(-761,-538,-1724,2631,-7633,-2459,-7393,-6571,7242,1943,-4345,8966,-5901,-2758,-4411,3143,4511,5830,3638,-2579);
+// 資料來源 $data
+require_once 'data.php'; 
+// $data = array(-761,-538,-1724,2631,-7633,-2459,-7393,-6571,7242,1943,-4345,8966,-5901,-2758,-4411,3143,4511,5830,3638,-2579);
+
+pre_print_r(test2($data));
+
+$et = getMicrotime();
+
+echo '執行時間 ', $et - $st , '秒';
 
 function test1($a)
 {
     $end = count($a);
 
     $max = $a[0];
-    $temp = 0;
 
+    $temp = 0;
     $start_key = 0;
     $end_key = 0;
 
@@ -93,16 +100,6 @@ function test2($a)
 
     return array('start_key' => $start_key,'end_key' => $end_key,'max' => $max,'start_val' => $start_val, 'end_val' => $end_val);
 }
-
-pre_print_r(test2($a));
-
-$et = getMicrotime();
-
-echo '執行時間 ', $et - $st , '秒<br>';
-
-
-
-
 
 function pre_print_r($input)
 {
