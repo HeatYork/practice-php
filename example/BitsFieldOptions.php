@@ -22,7 +22,7 @@ foreach ($options as $option)
 }
 
 /* or */
-
+# $input拆成十進位陣列 交集 可用的選項
 // $picks = splitBitsToDecimalArray($input);
 // $chooses = array_intersect($options, $picks);
 
