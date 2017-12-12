@@ -19,59 +19,11 @@ class DBHelper
      * @version 2017-08-29
      */
     public static $db_list = array(
-        'localhost_web_push' => array(
+        'localhost_test' => array(
                 'host' => 'localhost',
-                'dbname' => 'web_push',
-                'username' => 'hodo_user',
-                'password' => 'hodomobile*777',
-            ),
-        'subscribe_web_push' => array(
-                'host' => 'www.likr.com.tw',
-                'dbname' => 'web_push',
-                'username' => 'hodo_user',
-                'password' => 'hodomobile*777',
-            ),
-        'master_o2o' => array(
-                'host' => 'master.likr.com.tw',
-                'dbname' => 'likr_o2o',
-                'username' => 'hodo_user',
-                'password' => 'hodomobile*777',
-            ),
-        'master_web_push' => array(
-                'host' => 'master.likr.com.tw',
-                'dbname' => 'web_push',
-                'username' => 'hodo_user',
-                'password' => 'hodomobile*777',
-            ),
-        'impression_web_push' => array(
-                'host' => 'impression.likr.com.tw',
-                'dbname' => 'web_push',
-                'username' => 'hodo_user',
-                'password' => 'hodomobile*777',
-            ),
-        'report_web_push' => array(
-                'host' => 'report.likr.com.tw',
-                'dbname' => 'web_push',
-                'username' => 'hodo_user',
-                'password' => 'hodomobile*777',
-            ),
-        'webpush-api_web_push' => array(
-                'host' => 'webpush-ap.likr.com.tw',
-                'dbname' => 'web_push',
-                'username' => 'hodo_user',
-                'password' => 'hodomobile*777',
-            ),
-        'slave01_web_push' => array(
-                'host' => 'slave01.likr.com.tw',
-                'dbname' => 'web_push',
-                'username' => 'hodo_user',
-                'password' => 'hodomobile*777',
-            ),
-        'slave02_web_push' => array(
-                'host' => 'slave02.likr.com.tw',
-                'dbname' => 'web_push',
-                'username' => 'hodo_user',
-                'password' => 'hodomobile*777',
+                'dbname' => 'test',
+                'username' => 'root',
+                'password' => '1234',
             ),
     );
 
@@ -88,7 +40,7 @@ class DBHelper
         $username = self::$db_list[$target]['username'];
         $password = self::$db_list[$target]['password'];
         $pconnect = FALSE; //是否長連接
-        $charset = 'utf8'; //設置默認編碼
+        $charset = 'utf8mb4'; //設置默認編碼
         $dsn = "mysql:host={$host};dbname={$dbname};charset={$charset}";
         try
         {
@@ -345,9 +297,9 @@ class DBHelper
                 $slave = array(
                         'host'      => $row['ip'],
                         'name'      => $row['name'],
-                        'dbname'    => 'web_push',
-                        'username'  => 'hodo_user',
-                        'password'  => 'hodomobile*777',
+                        'dbname'    => 'test',
+                        'username'  => 'root',
+                        'password'  => '1234',
                 );
                 array_push($slave_list, $slave);
             }
@@ -374,7 +326,7 @@ class DBHelper
                 $username = $row['username'];
                 $password = $row['password'];
                 $pconnect = FALSE; //是否長連接
-                $charset = 'utf8'; //設置默認編碼
+                $charset = 'utf8mb4'; //設置默認編碼
                 $dsn = "mysql:host={$host};dbname={$dbname};charset={$charset}";
                 try
                 {
